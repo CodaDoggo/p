@@ -5,13 +5,15 @@
    <script>
      const newUrl = modifyUrl();
  
-     // Update the content attribute of the meta tag
      var metaTag = document.querySelector('meta[http-equiv="Refresh"]');
      metaTag.content = '0; url=' + newUrl;
  
      function modifyUrl() {
        const pathSegments = window.location.pathname.split('/');
        const uniqueString = pathSegments[pathSegments.length - 1];
+       if (uniqueString.length > 13) {
+         return `https://bsky.app/profile/latex.dog`;
+       }
        return `https://bsky.app/profile/latex.dog/post/${uniqueString}`;
      }
    </script>
